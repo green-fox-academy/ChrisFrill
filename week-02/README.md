@@ -49,9 +49,9 @@ String greeting = "Hello world!";
 ```
 
 ## operators
-* \+ : Addition
-* \- : Substraction
-* \* : Multiplication
+* **+** : Addition
+* **-** : Substraction
+* ** \* ** : Multiplication
 * / : Division
 * % : Modulus 	Divides left-hand operand by right-hand operand and returns remainder.
 * = : Simple assignment operator. Assigns values from right side operands to left side operand.
