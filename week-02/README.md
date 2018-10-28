@@ -13,24 +13,36 @@ A variable provides us with named storage that our programs can manipulate. Each
 
 You must declare all variables before they can be used.
 
-### declaration
+**declaration**
 To be able to use a variable it needs to be declared. Declaring variables is normally the first thing that happens in any program.
 
-### giving value
-'''java
+**giving value**
+```java
 int number = 10;
-'''
-### byte
+```
 
-### int
+**byte**
+(number, 1 byte)
+**int**
+(number, 4 bytes)
+**float**
+(float number, 4 bytes)
 
-### float
+Float is a term is used in various programming languages to define a variable with a fractional value. Numbers created using a float variable declaration will have digits on both sides of a decimal point. This is in contrast to the integer data type, which houses an integer or whole number.
 
-### boolean
+**boolean**
+(true or false, 1 byte)
+**char**
+(a character, 2 bytes)
+**String**
+revious • Trail • Next »
+Strings, which are widely used in Java programming, are a sequence of characters. In the Java programming language, strings are objects.
 
-### char
+The Java platform provides the String class to create and manipulate strings.
 
-### String
+```java
+String greeting = "Hello world!";
+```
 
 ## operators
 * +
