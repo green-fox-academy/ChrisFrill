@@ -39,7 +39,6 @@ Float is a term is used in various programming languages to define a variable wi
 (a character, 2 bytes)
 
 * **String**
-revious • Trail • Next »
 Strings, which are widely used in Java programming, are a sequence of characters. In the Java programming language, strings are objects.
 
 The Java platform provides the String class to create and manipulate strings.
