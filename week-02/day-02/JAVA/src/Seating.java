@@ -3,8 +3,7 @@ import java.util.Random;
 
 public class Seating {
     public static void main(String[] args){
-        String[] students = {"András", "Archie", "Betti", "Chika", "Csongi", "Dani", "Diana", "Dóri", "Enikő", "Gábor", "Krisz", "Lili", "Márk",
-"Peti L.", "Peti R.", "Pityu", "Sol", "Tomi", "Zoli", "Zsolt", "Zsuzsa"};
+        String[] students = {"András", "Archie", "Betti", "Chika", "Csongi", "Dani", "Diana", "Dóri", "Enikő", "Gábor", "Krisz", "Lili", "Márk", "Peti L.", "Peti R.", "Pityu", "Sol", "Tomi", "Zoli", "Zsolt", "Zsuzsa"};
         System.out.println("The class: " +Arrays.toString(students));
         shuffleArray(students);
         System.out.println("After shuffling: " + Arrays.toString(students));

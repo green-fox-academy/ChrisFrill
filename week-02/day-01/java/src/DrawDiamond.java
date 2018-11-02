@@ -14,6 +14,7 @@ public class DrawDiamond {
     //    *
     //
     // The diamond should have as many lines as the number was
+    // Not the exact same thing. Just wanted to draw a diamond if the system get an even number.
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -21,8 +22,8 @@ public class DrawDiamond {
         int yourNumber = scanner.nextInt();
         String star = "*";
 
-        for(int i=0;i<yourNumber;i++) {
-            for(int j=0;j<yourNumber-i;j++){
+        for (int i = 0; i < yourNumber; i++) {
+            for (int j = 0; j < yourNumber - i; j++) {
                 System.out.print(" ");
             }
             System.out.println(star);
@@ -32,19 +33,20 @@ public class DrawDiamond {
         star = "*";
         String doubleStar = "**";
 
-        for(int i=1;i<yourNumber;i++){
-            for(int j = 0;j < i + 1;j++){
+        for (int i = 0; i < yourNumber; i++) {
+            for (int j = 0; j < i + 2; j++) {
                 System.out.print(" ");
             }
-            for(int k = 1;k<yourNumber;k++){
-                if (k == 1){
-                System.out.print(star);
-            }else {
+            for (int k = 0; k < yourNumber -1 -i; k++) {
+                if (k == 0) {
+                    System.out.print(star);
+                } else {
                     System.out.print(doubleStar);
                 }
-            }
 
-        }
+            }
+            System.out.println();
         }
     }
+}
 
