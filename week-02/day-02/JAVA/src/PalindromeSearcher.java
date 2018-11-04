@@ -22,7 +22,19 @@ public class PalindromeSearcher {
                 }
             }
         }
-
+        for (int i = 1; i < userInput.length(); i++) {
+            for (int j = 0; j <= i; j++) {
+                if (i + j + 2 > userInput.length()) {
+                    break;
+                } else if (userInput.charAt(i - j) != userInput.charAt(i + j + 1)) {
+                    break;
+                } else if (userInput.substring(i - j, i + j + 2).length() >= 4) {
+                    palindrome.add(userInput.substring(i - j, i + j + 2));
+                    System.out.println(palindrome);
+                }
+            }
+        }
+        System.out.println(palindrome);
         return palindrome;
     }
 }
