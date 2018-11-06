@@ -14,14 +14,15 @@ public class QuoteSwap {
         // Expected output: "What I cannot create I do not understand."
     }
 
-    public static ArrayList<String> quoteSwap(ArrayList<String> quote) {
+    public static String quoteSwap(ArrayList<String> quote) {
+        String appended = "";
         quote.set(2, "cannot");
         quote.set(5, "do");
 
-        for (int i = 0; i < quote.size(); i++) {
-            System.out.print(quote.get(i) + " ");
+        for (String i : quote) {
+            appended += i + " ";
         }
 
-        return quote;
+        return appended;
     }
 }
