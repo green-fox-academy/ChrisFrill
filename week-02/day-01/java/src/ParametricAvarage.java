@@ -12,7 +12,7 @@ public class ParametricAvarage {
         int yourNumber = scanner.nextInt();
         double sum = 0;
 
-        for (int i = 1;i<yourNumber + 1;i++){
+        for (int i = 1; i < yourNumber + 1; i++) {
             System.out.println("Please enter an integer #" + i + " : ");
             double a = scanner.nextInt();
             sum += a;

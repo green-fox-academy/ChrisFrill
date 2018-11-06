@@ -35,9 +35,9 @@ public class VariableMutation {
         // tell if f1 is bigger than f2 (print as a boolean)
         System.out.println("tell if f1 is bigger than f2 (print as a boolean)");
         if (f1 > f2) {
-            System.out.println(f1>f2);
-        }else {
-            System.out.println(f1>f2);
+            System.out.println(f1 > f2);
+        } else {
+            System.out.println(f1 > f2);
         }
 
         boolean f1Biggerf2 = f1 > f2;
@@ -47,9 +47,9 @@ public class VariableMutation {
         int g2 = 200;
         // tell if the double of g2 is bigger than g1 (print as a boolean)
         if (g1 > g2) {
-            System.out.println(g1>g2);
-        }else {
-            System.out.println(g1>g2);
+            System.out.println(g1 > g2);
+        } else {
+            System.out.println(g1 > g2);
         }
 
         boolean g1Biggerg2 = g1 > g2;
@@ -77,7 +77,7 @@ public class VariableMutation {
 
         String k = "Apple";
         //fill the k variable with its content 4 times
-        for (int i=1; i<3; i++){
+        for (int i = 1; i < 3; i++) {
             k += k;
         }
         System.out.println(k);

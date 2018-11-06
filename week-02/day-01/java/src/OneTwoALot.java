@@ -8,18 +8,18 @@ public class OneTwoALot {
         // If the number is two it should print: Two
         // If the number is more than two it should print: A lot
 
-        while (true){
+        while (true) {
             System.out.println("Your number:");
             Scanner scanner = new Scanner(System.in);
             int yourNumber = scanner.nextInt();
 
             if (yourNumber <= 0) {
                 System.out.println("Not enough");
-            }else if (yourNumber == 1) {
+            } else if (yourNumber == 1) {
                 System.out.println("One");
-            }else if (yourNumber == 2) {
+            } else if (yourNumber == 2) {
                 System.out.println("Two");
-            }else if (yourNumber > 2) {
+            } else if (yourNumber > 2) {
                 System.out.println("A lot");
             }
         }

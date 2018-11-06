@@ -10,9 +10,9 @@ public class PrintBigger {
         System.out.println("b: ");
         int b = scanner.nextInt();
 
-        if(a>b){
+        if (a > b) {
             System.out.println(a);
-        }else {
+        } else {
             System.out.println(b);
         }
 

@@ -7,14 +7,14 @@ public class OddEven {
 
     public static void main(String[] args) {
 
-        while (true){
+        while (true) {
             System.out.println("Your number:");
             Scanner scanner = new Scanner(System.in);
             int yourNumber = scanner.nextInt();
 
-            if (yourNumber % 2 == 0){
+            if (yourNumber % 2 == 0) {
                 System.out.println("Even");
-            }else {
+            } else {
                 System.out.println("Odd");
             }
         }
