@@ -41,7 +41,7 @@ public class Bubble {
             try {
                 ascOrDesc = scanner.nextBoolean();
                 break;
-            } catch (InputMismatchException ignore) {
+            } catch (InputMismatchException e) {
                 System.out.println("Please only enter true or false.");
                 scanner.next();
             }
