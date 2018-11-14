@@ -22,18 +22,18 @@ public class Armada {
     public boolean battleArmada(Armada otherArmada) {
         int enemyShipStart = 0;
         int shipStart = 0;
-        for (int i = 0; i < ships.size(); i++) {
+        for (int i = shipStart; i < ships.size(); i++) {
             for (int j = enemyShipStart; j < otherArmada.ships.size(); j++) {
                 if (ships.get(i).battleShip(otherArmada.ships.get(j))) {
-                    System.out.println("Awesome! The first armada's " + ships.get(i).name +
-                            " ship has won against second armada's " + otherArmada.ships.get(j).name
-                            + " ship.");
                     enemyShipStart++;
+                    System.out.println("Awesome! The first armada's " + (shipStart + 1) +
+                            " ship has won against second armada's " + enemyShipStart
+                            + ". ship.");
                 } else {
-                    System.out.println("Oh, no! The first armada's " + ships.get(i).name +
-                            " ship has lost against second armada's " + otherArmada.ships.get(j).name
-                            + " ship.");
                     shipStart++;
+                    System.out.println("Oh, no! The first armada's " + shipStart +
+                            " ship has lost against second armada's " + (enemyShipStart + 1)
+                            + ". ship.");
                 }
                 if (shipStart > ships.size() - 1) {
                     System.out.println("Did the first armada win the war?");
