@@ -1,5 +1,3 @@
-import com.sun.org.apache.xerces.internal.xs.StringList;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,14 +10,13 @@ public class Lottery {
         // Create a method that find the 5 most common lottery numbers in lottery.csv
         System.out.println(getNumbers("lottery.txt"));
         System.out.println(countNumbersFrequency("lottery.txt"));
-        System.out.println(mostCommonNumbers("lottery.txt"));
-
-
+        System.out.println(getMostCommonNumbers("lottery.txt"));
     }
 
     public static List<String> getNumbers(String location) {
         Path filePath = Paths.get(location);
         List<String> fileRead;
+
         List<String> numbers = new ArrayList<>();
         try {
             fileRead = Files.readAllLines(filePath);
@@ -35,21 +32,19 @@ public class Lottery {
 
     public static HashMap<String, Integer> countNumbersFrequency(String location) {
         List<String> numbers = getNumbers(location);
+
         HashMap<String, Integer> numbersFrequency = new HashMap<>();
-        for (int i = 0; i < numbers.size(); i++) {
-            String key = numbers.get(i);
-            if (numbersFrequency.containsKey(key)) {
-                int value = numbersFrequency.get(key);
-                value++;
-                numbersFrequency.put(key, value);
-            } else {
-                numbersFrequency.put(key, 1);
+        for (String item : numbers) {
+            if (!numbersFrequency.containsKey(item)) {
+                numbersFrequency.put(item, 0);
             }
+            numbersFrequency.put(item, numbersFrequency.get(item) + 1);
         }
+
         return numbersFrequency;
     }
 
-    public static List<String> mostCommonNumbers(String location) {
+    public static List<String> getMostCommonNumbers(String location) {
         HashMap<String, Integer> numbers = countNumbersFrequency(location);
         List<Integer> sorted = new ArrayList<>(numbers.values());
         sorted.sort(Comparator.reverseOrder());
@@ -60,7 +55,6 @@ public class Lottery {
                     mostCommon.add(entry.getKey());
                 }
             }
-
         }
         return mostCommon;
     }
