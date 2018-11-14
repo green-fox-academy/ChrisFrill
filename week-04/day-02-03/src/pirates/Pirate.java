@@ -13,6 +13,8 @@ public class Pirate {
     public void drinkSomeRum() {
         if (intoxicated >= 0) {
             intoxicated++;
+        } else {
+            System.out.println("He is dead.");
         }
     }
 

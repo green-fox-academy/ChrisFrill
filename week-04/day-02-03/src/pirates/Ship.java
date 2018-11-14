@@ -54,7 +54,7 @@ public class Ship {
     public int getAlive() {
         int alive = 0;
         for (Pirate pirate : pirates) {
-            if (pirate.intoxicated >= 0) {
+            if (pirate.intoxicated >= 0 && pirate.intoxicated < 5) {
                 alive++;
             }
         }
@@ -115,7 +115,7 @@ public class Ship {
     @Override
     public String toString() {
         return "\nThe " + name + " ship has "
-                + getAlive() + " alive pirates in the crew. Ahoy!\n" +
+                + getAlive() + " alive and well pirates in the crew. Ahoy!\n" +
                 "The captain consumed " + getCaptainRumConsumption() + " rum.\n" +
                 "The captain is " + getCaptainState() + ".\n" +
                 "Battles won: " + battlesWon + ".\n";
