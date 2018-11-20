@@ -14,7 +14,6 @@ public class Pirate {
         if (intoxicated >= 0) {
             intoxicated++;
         } else {
-            System.out.println("He is dead.");
         }
     }
 
