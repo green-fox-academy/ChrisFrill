@@ -36,10 +36,10 @@ public class Armada {
                             + ". ship.");
                 }
                 if (shipStart > ships.size() - 1) {
-                    System.out.println("Did the first armada win the war?");
+                    System.out.println("\nDid the first armada win the war?");
                     return false;
                 } else if (enemyShipStart > otherArmada.ships.size() - 1 ) {
-                    System.out.println("Did the first armada win the war?");
+                    System.out.println("\nDid the first armada win the war?");
                     return true;
                 }
             }
