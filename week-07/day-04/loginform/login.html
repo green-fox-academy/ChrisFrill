@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Table</title>
+            <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form action="/poshere" method="post">
+            <div>
+                <p  id="account_login">
+                   Account login
+                </p>
+            </div>
+            <div>
+                <label for="text">Username</label>
+                <input type="text" id="username" name="username" autofocus>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <img class="show_pass" src="show_pass.png" onclick="myFunction()"></span>
+
+            </div>
+            <div>
+                    <p class="forgot_password">
+                       Forgot password?
+                    </p>
+                </div>
+            <div>
+                <input type="submit" value="Login">
+            
+            </div>
+
+        </form>
+    </body>
+
+
+    <script>
+    function myFunction() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+    </script>
+</html>
