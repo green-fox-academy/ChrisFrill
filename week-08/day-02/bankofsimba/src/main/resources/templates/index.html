@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<span th:text="${simba.name}"></span>
+<span th:text="${#numbers.formatDecimal(simba.getBalance(), 1, 2)} + ' Zebra'"></span>
+
+<span th:text="${simba.animalType}"></span>
+</body>
+</html>

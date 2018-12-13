@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div id="header">
+    <div><img class="logo" src="/img/logo.png"><span>Bank of Simba</span></div>
+    <div id="increase">
+        <form action="#" th:action="@{/character-accounts/increase}" th:object="${bankAccount}" method="POST">
+            <select name="asd" th:field="*{id}">
+                <option th:each="account : ${bankAccountList}" th:value="${account.id}"
+                        th:text="${account.name}"></option>
+            </select>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+    <div>
+        <button class="collapsible">Add new character</button>
+        <div class="content">
+            <form action="#" th:action="@{/character-accounts/add}" th:object="${bankAccount}" method="POST">
+                <label for="name">Character name:</label>
+                <input type="text" name="name" id="name" th:field="*{name}" required>
+
+                <label for="balance">Balance</label>
+                <input type="number" name="balance" id="balance" th:field="*{balance}" required>
+
+                <label for="animalType">Animal Type</label>
+                <input type="text" name="animalType" id="animalType" th:field="*{animalType}" required>
+
+                <select name="king" th:field="*{isKingOrNot}">
+                    <option th:value="'King'">King</option>
+                    <option th:value="'Not King'">Definitely not a king</option>
+                </select>
+
+                <select name="good" th:field="*{isGood}">
+                    <option th:value="true">Good</option>
+                    <option th:value="false">Bad</option>
+                </select>
+
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="main">
+    <div th:each="account : ${bankAccountList}" class="characters">
+        <p th:text="${account.name}"></p>
+        <p th:text="${#numbers.formatDecimal(account.getBalance(), 1, 2)} + ' Zebra'"></p>
+        <p th:text="${account.animalType}"></p>
+        <p th:text="${accountStat.index}"></p>
+        <p th:text="${account.getIsKingOrNot()}" th:if="${account.getIsKingOrNot() == 'King'}" style="color: aqua"></p>
+        <p th:text="${account.getIsKingOrNot()}" th:if="${account.getIsKingOrNot() != 'King'}"></p>
+        <p th:text="${account.getIsGood() ? 'Good Guy' : 'Bad Guy'}"></p>
+    </div>
+</div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
