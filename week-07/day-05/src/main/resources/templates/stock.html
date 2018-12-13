@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div>
+    <div id="title">
+        <a href='/webshop'><span>Krisz shop</span></a>
+        <div id="search">
+            <form action="/search" method="POST">
+                <input type="search" name="q" aria-label="Search through site content">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="navigation">
+    <div onclick="location.href='/only-available'" class="button">
+        <p>Only available</p>
+    </div>
+
+    <div onclick="location.href='/cheapest-first'" class="button">
+        <p>Cheapest first</p>
+    </div>
+
+    <div onclick="location.href='/contains-nike '" class="button">
+        <p>Contains Nike</p>
+    </div>
+
+    <div onclick="location.href='/average-stock'" class="button">
+        <p>Average stock</p>
+    </div>
+
+    <div onclick="location.href='/most-expensive'" class="button">
+        <p>Most expensive</p>
+    </div>
+
+</div>
+
+<div id="webshop">
+    <div>
+        <p th:if="${stock != null}" th:text="'Average stock: ' + ${stock}">Text</p>
+        <p th:if="${mostExpensive != null}" th:text="${mostExpensive}">Text</p>
+    </div>
+
+</div>
+</body>
+</html>
+
+
+

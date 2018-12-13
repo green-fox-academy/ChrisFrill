@@ -1,0 +1,115 @@
+body {
+    background-image: url("../img/connectwork.png");
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.shop_field {
+    font-weight: 900;
+}
+
+#webshop {
+    margin: auto;
+    width: 88%;
+    background: white;
+    padding: 20px;
+}
+
+#search {
+    float: right;
+    line-height: 30px;
+}
+
+input[type="search"] {
+    width: 300px;
+    border-radius: 10px;
+    border: 0px;
+    height: 30px;
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 80px;
+    background: white;
+    color: black;
+    border: 0;
+    border-radius: 20px;
+    padding: 5px;
+    outline: none;
+}
+
+#title {
+    border-bottom: 1px solid lightgray;
+    font-size: 50px;
+    color: white;
+    background: red;
+    padding: 0 2%;
+    width: 96%;
+    display: inline-block;
+}
+
+#navigation {
+    border-bottom: 1px solid #4B5043;
+    font-size: 50px;
+    color: white;
+    background: #4B5043;
+    padding: 0 6%;
+    width: 88%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.button {
+    border-right: 1px solid gray;
+    color: white;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.button:hover {
+    background: gray;
+}
+
+.shop_item {
+    margin: 5%;
+    background: red;
+    color: white;
+    border-radius: 20px;
+}
+
+.shop_item:hover {
+    background-image: url("../img/Unstable-Unicorns-Artwork-min.jpg");
+    background-size: 100%;
+    margin: 5%;
+    color: black;
+}
+
+.layer {
+    padding: 5%;
+    margin: 0;
+    width: 90%;
+    border-radius: 20px;
+}
+
+.layer:hover {
+    background: rgba(220, 220, 200, 0.8);
+}
+
+.name {
+    position: relative;
+    font-size: 20px;
+    font-weight: 900;
+}
