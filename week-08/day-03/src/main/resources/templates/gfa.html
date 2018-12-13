@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${studentCount}"></p>
+<p><a href="/gfa">Homepage</a></p>
+<p><a href="/gfa/list">List students</a></p>
+<p><a href="/gfa/add">Add student</a></p>
+<p><a href="/gfa/check">Check student</a></p>
+<ul th:if="${students != null}">
+    <li>Students
+        <ul>
+            <li th:each="student : ${students}" th:text="${student}"></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

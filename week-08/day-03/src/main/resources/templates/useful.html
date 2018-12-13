@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <title></title>
+</head>
+<body th:bgcolor="${randomColor}">
+<a href="/useful">Home page</a>
+<a href="/useful/colored">Colored background</a>
+<a href="/useful/encoder?text=example&number=1">Encoder</a>
+<a href="/useful/decoder?text=fybnqmf&number=1">Decoder</a>
+<p th:if="${email} != null" th:class="${emailValidation}" th:text="${emailValidation} ?
+    ${email} + ' is a valid email address' :
+    ${email} + ' is not a valid email address' "></p>
+
+<p th:if="${encoder} != null" th:text="${encoder}"></p>
+<p th:if="${decoder} != null" th:text="${decoder}"></p>
+</body>
+</html>
