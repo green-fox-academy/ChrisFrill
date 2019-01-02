@@ -7,8 +7,11 @@ import com.greenfoxacademy.rest.model.WhatNumbers;
 import com.greenfoxacademy.rest.service.LogService;
 import com.greenfoxacademy.rest.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,17 +26,17 @@ public class ArrayController {
     }
 
     @PostMapping("arrays")
-    public Object postArrays(@RequestBody(required = false) WhatNumbers whatNumbers) {
+    public @ResponseBody ResponseEntity<Object> postArrays(@RequestBody(required = false) WhatNumbers whatNumbers) {
         logService.save(new Log("/arrays", whatNumbers.toString()));
         if (whatNumbers.getNumbers() == null || whatNumbers.getWhat() == null) {
-            return new ErrorMessage("Please provide what to do with the numbers!");
+            return new ResponseEntity<Object>(new ErrorMessage("Please provide what to do with the numbers!"), HttpStatus.OK);
         } else if (whatNumbers.getWhat().equals("sum")) {
-            return new Result(resultService.sumAll(whatNumbers.getNumbers()));
+            return new ResponseEntity<Object>(new Result(resultService.sumAll(whatNumbers.getNumbers())), HttpStatus.OK);
         } else if (whatNumbers.getWhat().equals("multiply")) {
-            return new Result(resultService.multiplyAll(whatNumbers.getNumbers()));
+            return new ResponseEntity<Object>(new Result(resultService.multiplyAll(whatNumbers.getNumbers())), HttpStatus.OK);
         } else if (whatNumbers.getWhat().equals("double")) {
-            return new Result(resultService.doubleAll(whatNumbers.getNumbers()));
+            return new ResponseEntity<Object>(new Result(resultService.doubleAll(whatNumbers.getNumbers())), HttpStatus.OK);
         }
-        return new ErrorMessage("Please provide a valid action!");
+        return new ResponseEntity<Object>(new ErrorMessage("Please provide a valid action!"), HttpStatus.OK);
     }
 }

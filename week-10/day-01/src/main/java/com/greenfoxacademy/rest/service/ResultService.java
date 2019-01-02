@@ -1,17 +1,17 @@
 package com.greenfoxacademy.rest.service;
 
 import com.greenfoxacademy.rest.model.Result;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 @Service
 public class ResultService {
     private Result result;
 
-    @Autowired
+    public ResultService() {
+    }
+
     public ResultService(Result result) {
         this.result = result;
     }

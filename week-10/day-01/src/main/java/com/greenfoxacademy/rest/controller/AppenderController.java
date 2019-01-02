@@ -1,5 +1,6 @@
 package com.greenfoxacademy.rest.controller;
 
+import com.greenfoxacademy.rest.model.Appended;
 import com.greenfoxacademy.rest.model.Log;
 import com.greenfoxacademy.rest.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,6 @@ public class AppenderController {
     @GetMapping("appenda/{appendable}")
     public Object showAppenda(@PathVariable("appendable") String appendable) {
         logService.save(new Log("/appenda", appendable));
-        return String.format("%sa", appendable);
+        return new Appended(String.format("%sa", appendable));
     }
 }
