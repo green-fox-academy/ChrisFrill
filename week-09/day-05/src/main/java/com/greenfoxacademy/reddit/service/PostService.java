@@ -49,4 +49,10 @@ public class PostService {
         return postRepository.findAll(PageRequest.of(pageNumber, 10, Sort.by("score").descending()));
     }
 
+    public void delete(String id) {
+        Long convertedID = Long.parseLong(id);
+        Post post = postRepository.findById(convertedID).get();
+        postRepository.delete(post);
+    }
+
 }

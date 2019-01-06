@@ -55,4 +55,9 @@ public class PostController {
         return "redirect:";
     }
 
+    @PostMapping("/delete")
+    public String delete(@ModelAttribute("id") String id) {
+        postService.delete(id);
+        return "redirect:";
+    }
 }
