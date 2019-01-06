@@ -2,29 +2,23 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Registration Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+        <form method="POST" th:action="@{/registration}" th:object="${userForm}" class="form-signin">
 
-<div class="container">
+            <h2 class="form-signin-heading">Create your account</h2>
+            <input th:field="*{username}" type="text" class="form-control" placeholder="Username"
+                   autofocus="true">
 
-    <form method="POST" th:action="@{/registration}" th:object="${userForm}" class="form-signin">
-        <h2 class="form-signin-heading">Create your account</h2>
-        <input th:field="*{username}" type="text" class="form-control" placeholder="Username"
-               autofocus="true">
-
-        <input th:field="*{password}"  type="password" class="form-control" placeholder="Password">
+            <input th:field="*{password}"  type="password" class="form-control" placeholder="Password">
 
 
-        <input th:field="*{passwordConfirm}" type="password" class="form-control"
-               placeholder="Confirm your password">
+            <input th:field="*{passwordConfirm}" type="password" class="form-control"
+                   placeholder="Confirm your password">
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-    </form>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        </form>
 
-</div>
 </body>
 </html>

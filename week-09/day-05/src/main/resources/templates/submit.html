@@ -2,35 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Title</title>
 <body>
-<a th:href="@{../}">Return home</a>
 <h1 class="text-center">Submit new post</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-2 col-lg-offset-5">
-            <form th:method="POST" th:action="@{../submit}" th:object="${post}">
+            <form th:method="POST" th:action="@{../submit}" th:object="${post}" >
                 <div class="form-group">
-                    <input type="text" placeholder="Title" th:field="*{title}">
+                    <input type="text" placeholder="Title" th:field="*{title}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input placeholder="URL" th:field="*{url}">
+                    <input placeholder="URL" th:field="*{url}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block">
                 </div>
             </form>
-        </div>
-
-    </div>
-
-</div>
-
-
-<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
