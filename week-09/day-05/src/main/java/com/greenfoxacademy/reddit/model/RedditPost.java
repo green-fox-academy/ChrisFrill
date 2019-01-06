@@ -11,8 +11,13 @@ public class RedditPost {
     private String title;
     private String url;
     private Long score;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
+
+    @ManyToOne
+    @JoinTable(name = "user_posts", joinColumns = @JoinColumn(name ="user_id"),
+            inverseJoinColumns = @JoinColumn(name = "post_id"))
+    private User user;
 
     public RedditPost() {
         this.score = 0L;

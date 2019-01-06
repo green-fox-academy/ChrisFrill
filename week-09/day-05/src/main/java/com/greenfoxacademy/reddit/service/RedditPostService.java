@@ -3,6 +3,10 @@ package com.greenfoxacademy.reddit.service;
 import com.greenfoxacademy.reddit.model.RedditPost;
 import com.greenfoxacademy.reddit.repository.RedditPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,4 +46,9 @@ public class RedditPostService {
         post.decreaseScore();
         redditPostRepository.save(post);
     }
+
+    public Page<RedditPost> showByTen(int pageNumber) {
+        return redditPostRepository.findAll(PageRequest.of(pageNumber, 10, Sort.by("score").descending()));
+    }
+
 }
