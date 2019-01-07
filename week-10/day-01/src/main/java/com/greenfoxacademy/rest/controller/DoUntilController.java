@@ -28,11 +28,11 @@ public class DoUntilController {
         logService.save(new Log(String.format("dountil/{%s}", action), until.toString()));
         int number = until.getUntil();
         if (until == null) {
-            return new ErrorMessage("Please provide a number!");
+            throw new UnsupportedOperationException("Please provide a number!");
         } else if (action.equals("sum")) {
-            return new Result(resultService.sumUntil(number));
+            throw new UnsupportedOperationException(resultService.sumUntil(number).toString());
         } else if (action.equals("factor")) {
-            return new Result(resultService.factor(number));
+            throw new UnsupportedOperationException(resultService.factor(number).toString());
         }
         return new ErrorMessage("Please provide a valid action!");
     }

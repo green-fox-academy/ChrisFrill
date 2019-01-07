@@ -26,17 +26,17 @@ public class ArrayController {
     }
 
     @PostMapping("arrays")
-    public @ResponseBody ResponseEntity<Object> postArrays(@RequestBody(required = false) WhatNumbers whatNumbers) {
+    public @ResponseBody ResponseEntity<Result> postArrays(@RequestBody(required = false) WhatNumbers whatNumbers) {
         logService.save(new Log("/arrays", whatNumbers.toString()));
         if (whatNumbers.getNumbers() == null || whatNumbers.getWhat() == null) {
-            return new ResponseEntity<Object>(new ErrorMessage("Please provide what to do with the numbers!"), HttpStatus.OK);
+            throw new UnsupportedOperationException("Please provide what to do with the numbers!");
         } else if (whatNumbers.getWhat().equals("sum")) {
-            return new ResponseEntity<Object>(new Result(resultService.sumAll(whatNumbers.getNumbers())), HttpStatus.OK);
+            throw new UnsupportedOperationException(resultService.sumAll(whatNumbers.getNumbers()).toString());
         } else if (whatNumbers.getWhat().equals("multiply")) {
-            return new ResponseEntity<Object>(new Result(resultService.multiplyAll(whatNumbers.getNumbers())), HttpStatus.OK);
+            throw new UnsupportedOperationException(resultService.multiplyAll(whatNumbers.getNumbers()).toString());
         } else if (whatNumbers.getWhat().equals("double")) {
-            return new ResponseEntity<Object>(new Result(resultService.doubleAll(whatNumbers.getNumbers())), HttpStatus.OK);
+            throw new UnsupportedOperationException(resultService.doubleAll(whatNumbers.getNumbers()).toString());
         }
-        return new ResponseEntity<Object>(new ErrorMessage("Please provide a valid action!"), HttpStatus.OK);
+        throw new UnsupportedOperationException("Please provide a valid action!");
     }
 }

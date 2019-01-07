@@ -19,14 +19,13 @@ public class DoublingController {
     }
 
     @GetMapping("doubling")
-    public Object getDouble(@RequestParam(value = "input", required = false) Integer input) {
+    public Doubled getDouble(@RequestParam(value = "input", required = false) Integer input) {
         if (input != null) {
             logService.save(new Log("/doubling", input.toString()));
             return new Doubled(input);
         }
-        ErrorMessage errorMessage =  new ErrorMessage("Please provide an input!");
-        logService.save(new Log("/doubling", errorMessage.getError()));
-        return errorMessage;
+        logService.save(new Log("/doubling", "Please provide an input!"));
+        throw new UnsupportedOperationException("Please provide an input!");
     }
 
 }

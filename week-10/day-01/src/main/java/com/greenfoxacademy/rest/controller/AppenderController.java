@@ -18,7 +18,7 @@ public class AppenderController {
     }
 
     @GetMapping("appenda/{appendable}")
-    public Object showAppenda(@PathVariable("appendable") String appendable) {
+    public Appended showAppenda(@PathVariable("appendable") String appendable) {
         logService.save(new Log("/appenda", appendable));
         return new Appended(String.format("%sa", appendable));
     }

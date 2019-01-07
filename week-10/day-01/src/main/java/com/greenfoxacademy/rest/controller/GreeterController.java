@@ -19,15 +19,15 @@ public class GreeterController {
     }
 
     @GetMapping("greeter")
-    public Object showGreeting(@RequestParam(value = "name", required = false) String name,
+    public Greeting showGreeting(@RequestParam(value = "name", required = false) String name,
                                @RequestParam(value = "title", required = false) String title) {
         logService.save(new Log("/greeter", name + " ; " + title));
         if (name == null && title == null) {
-            return new ErrorMessage("Please provide a name and a title!");
+            throw  new UnsupportedOperationException("Please provide a name and a title!");
         } else if (title == null) {
-            return new ErrorMessage("Please provide a title!");
+            throw  new UnsupportedOperationException("Please provide a title!");
         } else if (name == null ) {
-            return new ErrorMessage("Please provide a name!");
+            throw  new UnsupportedOperationException("Please provide a name!");
         }
         return new Greeting(name, title);
     }
