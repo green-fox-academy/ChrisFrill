@@ -11,13 +11,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.Mockito.*;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(AppenderController.class)
@@ -31,16 +27,14 @@ public class AppenderControllerTest {
 
     @Test
     public void showAppenda_successful() throws Exception {
-        mockMvc.perform(get("/appenda/kuty")
-                .contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/appenda/kuty"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.appended", is("kutya")));
     }
 
     @Test
     public void showAppenda_missingPathVariable() throws Exception {
-        mockMvc.perform(get("/appenda/kuty"))
+        mockMvc.perform(get("/appenda/"))
                 .andExpect(status().isNotFound());
     }
 }

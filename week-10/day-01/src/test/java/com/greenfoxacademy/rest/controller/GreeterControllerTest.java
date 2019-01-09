@@ -33,11 +33,9 @@ public class GreeterControllerTest {
     @Test
     public void showGreeting_successful() throws Exception {
         mockMvc.perform(get("/greeter")
-                .contentType(MediaType.APPLICATION_JSON)
                 .param("name", "Petike")
                 .param("title", "student"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$.welcome_message", is("Oh, hi there Petike, my dear student!")));
     }
 

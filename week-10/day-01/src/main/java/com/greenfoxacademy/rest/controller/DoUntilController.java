@@ -30,9 +30,11 @@ public class DoUntilController {
         if (until == null) {
             throw new UnsupportedOperationException("Please provide a number!");
         } else if (action.equals("sum")) {
-            return new Result(resultService.sumUntil(number));
+            Result<Integer> result = new Result<>(resultService.sumUntil(number));
+            return result;
         } else if (action.equals("factor")) {
-            return new Result(resultService.factor(number));
+            Result<Integer> result = new Result<>(resultService.factor(number));
+            return result;
         }
         return new ErrorMessage("Please provide a valid action!");
     }

@@ -37,6 +37,7 @@ public class ArrayControllerTest {
         int[] numbers = {1, 2, 5, 10};
         WhatNumbers whatNumbers = new WhatNumbers("sum", numbers);
         Integer result = resultService.sumAll(whatNumbers.getNumbers());
+        System.out.println(result);
 
         when(resultService.sumAll(whatNumbers.getNumbers())).thenReturn(18);
 

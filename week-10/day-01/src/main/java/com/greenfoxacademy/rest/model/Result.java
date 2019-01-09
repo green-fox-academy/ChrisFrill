@@ -3,21 +3,21 @@ package com.greenfoxacademy.rest.model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Result {
-    private Object result;
+public class Result<T> {
+    private T result;
 
     public Result() {
     }
 
-    public Result(Object result) {
+    public Result(T result) {
         this.result = result;
     }
 
-    public Object getResult() {
+    public T getResult() {
         return result;
     }
 
-    public void setResult(Object result) {
+    public void setResult(T result) {
         this.result = result;
     }
 }

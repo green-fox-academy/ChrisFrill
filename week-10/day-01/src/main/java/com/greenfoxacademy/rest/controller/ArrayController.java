@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ArrayController {
     private ResultService resultService;
@@ -26,16 +28,16 @@ public class ArrayController {
     }
 
     @PostMapping("arrays")
-    public @ResponseBody ResponseEntity<Result> postArrays(@RequestBody(required = false) WhatNumbers whatNumbers) {
+    public Result postArrays(@RequestBody(required = false) WhatNumbers whatNumbers) {
         logService.save(new Log("/arrays", whatNumbers.toString()));
         if (whatNumbers.getNumbers() == null || whatNumbers.getWhat() == null) {
             throw new UnsupportedOperationException("Please provide what to do with the numbers!");
         } else if (whatNumbers.getWhat().equals("sum")) {
-            throw new UnsupportedOperationException(resultService.sumAll(whatNumbers.getNumbers()).toString());
+            return new Result<>(resultService.sumAll(whatNumbers.getNumbers()));
         } else if (whatNumbers.getWhat().equals("multiply")) {
-            throw new UnsupportedOperationException(resultService.multiplyAll(whatNumbers.getNumbers()).toString());
+            return new Result<>(resultService.multiplyAll(whatNumbers.getNumbers()));
         } else if (whatNumbers.getWhat().equals("double")) {
-            throw new UnsupportedOperationException(resultService.doubleAll(whatNumbers.getNumbers()).toString());
+            return new Result<>(resultService.doubleAll(whatNumbers.getNumbers()));
         }
         throw new UnsupportedOperationException("Please provide a valid action!");
     }
