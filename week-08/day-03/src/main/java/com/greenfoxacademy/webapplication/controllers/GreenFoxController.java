@@ -44,7 +44,6 @@ public class GreenFoxController {
     @GetMapping("/check")
     public String checkStudent(ModelMap modelMap, @ModelAttribute("student") String student) {
         modelMap.addAttribute("contains", studentService.checkIfInList(student));
-        modelMap.addAttribute(student);
         return "gfa-check-student";
     }
 }
