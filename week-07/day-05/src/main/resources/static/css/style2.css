@@ -1,0 +1,204 @@
+body {
+    background-image: url("../img/background.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.shop_field {
+    font-weight: 900;
+}
+
+#title {
+    border-bottom: 1px solid lightgray;
+    font-size: 50px;
+    color: white;
+    background: red;
+    padding: 0 2%;
+    width: 96%;
+    height:  56px;
+    display: grid;
+    grid-template-columns: 6fr 2fr 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#navigation {
+    border-bottom: 1px solid #4B5043;
+    font-size: 50px;
+    color: white;
+    background: #4B5043;
+    padding: 0 6%;
+    width: 88%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    z-index: 1;
+
+}
+
+#webshop  {
+    position: relative;
+    top: 150px;
+    margin: auto;
+    width: 88%;
+    background: none;
+    padding: 20px;
+    z-index: 0;
+}
+
+.login {
+    font-size: 20px;
+    line-height: 80px;
+}
+
+.search {
+    line-height: 30px;
+}
+
+.login form {
+    line-height: 30px;
+    width: 100%;
+    display: block;
+    padding: 2% 5%;
+}
+
+input[type="search"] {
+    width: 150px;
+    border-radius: 10px;
+    border: 0px;
+    height: 30px;
+    outline: none;
+}
+
+.search input[type="submit"] {
+    width: 80px;
+    background: white;
+    color: black;
+    border: 0;
+    border-radius: 20px;
+    padding: 5px;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.button {
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    color: white;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.button:hover {
+    background: gray;
+}
+
+.shop_item {
+    margin: 5%;
+    background: red;
+    color: white;
+    border-radius: 20px;
+}
+
+.shop_item:hover {
+    background-image: url("../img/Unstable-Unicorns-Artwork-min.jpg");
+    background-size: 100%;
+    margin: 5%;
+    color: black;
+}
+
+.layer {
+    padding: 5%;
+    margin: 0;
+    width: 90%;
+    border-radius: 20px;
+}
+
+.layer:hover {
+    background: rgba(220, 220, 200, 0.8);
+}
+
+.name {
+    position: relative;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    position: relative;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 30px;
+    border-radius: 10%;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    width: 150px;
+    padding: 5% 5%;
+    display: none;
+    overflow: hidden;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100px;
+    display:block;
+    margin: 0% 0 5% 0;
+    font-size: 0.9em;
+    border-radius: 5%;
+    border: 1px solid lightgray;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 1px solid green;
+}
+
+input[type="submit"] {
+    border: 0px;
+    border-radius: 10px;
+    background-color: #555555;
+    padding: 5%;
+    color: white;
+    width: 40%;
+    margin: 0 0 0% 0;
+}
+
+.show_pass {
+    width: 5%;
+    float: left;
+    margin-left: 90px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+}

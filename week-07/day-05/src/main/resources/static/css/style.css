@@ -1,5 +1,5 @@
 body {
-    background-image: url("../img/connectwork.png");
+    background-image: url("../img/background.jpg");
     padding: 0;
     margin: 0;
     width: 100%;
@@ -17,7 +17,7 @@ body {
 #webshop {
     margin: auto;
     width: 88%;
-    background: white;
+    background: none;
     padding: 20px;
 }
 
@@ -71,7 +71,8 @@ a {
 }
 
 .button {
-    border-right: 1px solid gray;
+    border-right: 1px solid red;
+    border-left: 1px solid gray;
     color: white;
     padding: 5px 8px;
     text-align: center;
