@@ -2,7 +2,7 @@ package music;
 
 public class ElectricGuitar extends StringedInstrument {
     public ElectricGuitar() {
-        super("Electric Guitar", 6);
+       this(6);
     }
 
     public ElectricGuitar(int numberOfStrings) {

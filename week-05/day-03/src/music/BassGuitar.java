@@ -2,7 +2,7 @@ package music;
 
 public class BassGuitar extends StringedInstrument {
     public BassGuitar() {
-        super("Bass Guitar", 4);
+      this(4);
     }
 
     public BassGuitar(int numberOfStrings) {
