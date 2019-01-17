@@ -1,6 +1,7 @@
 package aircraft;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.EmptyStackException;
 
 public class Carrier {
@@ -25,24 +26,30 @@ public class Carrier {
             return;
         }
         if (getAmmoStorage() == 0) {
-            throw new Error();
-        } else if (getAmmoStorage() < getAmmoNeeded()) {
-            for (Aircraft aircraft : aircrafts) {
-                if (aircraft.isPriority()) {
-                    setAmmoStorage(aircraft.refill(getAmmoStorage()));
-                }
-            }
-            for (Aircraft aircraft : aircrafts) {
-                if (!aircraft.isPriority()) {
-                    setAmmoStorage(aircraft.refill(getAmmoStorage()));
-                }
-            }
+            throw new EmptyStackException();
         } else {
-            for (Aircraft aircraft : aircrafts) {
-                setAmmoStorage(aircraft.refill(getAmmoStorage()));
+            fillPriority(true);
+            fillPriority(false);
+        }
+    }
+
+    public void fillPriority(boolean priority) {
+        int remainingAmmo;
+        for (Aircraft aircraft : aircrafts) {
+            if (aircraft.isPriority() == priority) {
+                remainingAmmo = aircraft.refill(this.ammoStorage);
+                this.ammoStorage = remainingAmmo;
             }
         }
     }
+
+    public static Comparator<Aircraft> aircraftComparator
+            = (aircraft1, aircraft2) -> {
+                int priority1 = aircraft1.isPriority() ? 1 : 0;
+                int priority2 = aircraft2.isPriority() ? 1 : 0;
+
+                return priority2 - priority1;
+            };
 
     public void fight(Carrier otherCarrier) {
         for (Aircraft aircraft : aircrafts) {

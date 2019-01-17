@@ -5,21 +5,20 @@ public class Aircraft {
     private int maxAmmo;
     private int baseDamage;
     private boolean priority;
-    private int ammoNeeded;
 
     public Aircraft() {
-        setAmmo(0);
+        ammo = 0;
     }
 
     public Aircraft(int maxAmmo, int baseDamage) {
-        setAmmo(0);
+        ammo = 0;
         setMaxAmmo(maxAmmo);
         setBaseDamage(baseDamage);
     }
 
     public int fight() {
-        int damage = getAmmo() * getBaseDamage();
-        setAmmo(0);
+        int damage = ammo * getBaseDamage();
+        ammo = 0;
         return damage;
     }
 
@@ -28,10 +27,10 @@ public class Aircraft {
         if (getAmmoNeeded() == 0) {
             return refillAmmo;
         } else if (refillAmmo < getAmmoNeeded()) {
-            setAmmo(getAmmo() + refillAmmo);
+            ammo = ammo + refillAmmo;
             return 0;
         } else {
-            setAmmo(getAmmo() + getAmmoNeeded());
+            ammo = ammo + getAmmoNeeded();
             if (refillAmmo - temp <= 0) {
                 return 0;
             }
@@ -44,25 +43,21 @@ public class Aircraft {
     }
 
     public String getStatus() {
-        return "Type " + getType() + " , Ammo: " + getAmmo()
+        return "Type " + getType() + " , Ammo: " + ammo
                 + " , Base damage: " + getBaseDamage() +
-                " , All Damage: " + getAmmo() * getBaseDamage();
+                " , All Damage: " + ammo * getBaseDamage();
     }
 
     public boolean isPriority() {
         return priority;
     }
 
-    public void setPriority(boolean priority) {
-        this.priority = priority;
-    }
-
     public int getAmmo() {
         return ammo;
     }
 
-    public void setAmmo(int ammo) {
-        this.ammo = ammo;
+    public void setPriority(boolean priority) {
+        this.priority = priority;
     }
 
     public int getMaxAmmo() {
@@ -74,7 +69,7 @@ public class Aircraft {
     }
 
     public int getAmmoNeeded() {
-        return getMaxAmmo() - getAmmo();
+        return getMaxAmmo() - ammo;
     }
 
     public int getBaseDamage() {

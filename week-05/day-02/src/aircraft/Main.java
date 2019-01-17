@@ -16,7 +16,7 @@ public class Main {
         System.out.println(f35.getStatus());
         System.out.println(f35.isPriority());
 
-        Carrier carrier = new Carrier(0, 200);
+        Carrier carrier = new Carrier(100, 200);
         carrier.add(f16);
         carrier.add(f35);
         System.out.println(carrier);
