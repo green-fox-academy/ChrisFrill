@@ -20,10 +20,10 @@
                                 <input type="email" name="email" placeholder="E-mail" autocomplete="off">
                         </div>
                         <div>
-                                <input type="password" name="password" placeholder="Password" autocomplete="off">
+                                <input type="password" id="password" name="password" placeholder="Password" autocomplete="off">
                         </div>
                         <div>
-                                <input type="password" name="passwordConfirmation" placeholder="Retype password" autocomplete="off">
+                                <input type="password" id="retype_pass" name="passwordConfirmation" placeholder="Retype password" autocomplete="off">
                         </div>
                         <div>
                             <input type="submit" value="Sign me up">
@@ -40,8 +40,22 @@
                     <button type="button" class="button3">Log in with Google+</button>
             </div>
         </div>
-
-       
     </body>
+
+    <script>
+    var password = document.getElementById("password")
+    , retype_pass = document.getElementById("retype_pass");
+
+    function validatePassword() {
+        if (password.value != retype_pass.value) {
+            retype_pass.setCustomValidity("Passwords don't match. Please retype.");
+        } else {
+            retype_pass.setCustomValidity('');
+        }
+    }
+    password.onchange = validatePassword;
+    retype_pass.onkeyup = validatePassword;
+
+    </script>
 
 </html>
