@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class PostController {
     private PostService postService;
@@ -38,19 +35,17 @@ public class PostController {
         User user = userService.findByUsername(username);
         Post newPost = new Post(post.getTitle(), post.getUrl(), user);
         postService.save(newPost);
-        System.out.println(username);
-        System.out.println(newPost);
         return "redirect:";
     }
 
     @PostMapping("/upvote")
-    public String upVote(@ModelAttribute("id") String id) {
+    public String upVote(@ModelAttribute("id") Long id) {
         postService.upVote(id);
         return "redirect:";
     }
 
     @PostMapping("/downvote")
-    public String downVote(@ModelAttribute("id") String id) {
+    public String downVote(@ModelAttribute("id") Long id) {
         postService.downVote(id);
         return "redirect:";
     }

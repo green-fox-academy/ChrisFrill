@@ -31,16 +31,14 @@ public class PostService {
         return postRepository.findById(id);
     }
 
-    public void upVote(String id) {
-        Long convertedID = Long.parseLong(id);
-        Post post = postRepository.findById(convertedID).get();
+    public void upVote(Long id) {
+        Post post = postRepository.findById(id).get();
         post.increaseScore();
         postRepository.save(post);
     }
 
-    public void downVote(String id) {
-        Long convertedID = Long.parseLong(id);
-        Post post = postRepository.findById(convertedID).get();
+    public void downVote(Long id) {
+        Post post = postRepository.findById(id).get();
         post.decreaseScore();
         postRepository.save(post);
     }

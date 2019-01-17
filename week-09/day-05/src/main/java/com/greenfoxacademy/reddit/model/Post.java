@@ -20,7 +20,7 @@ public class Post {
     private User user;
 
     public Post() {
-        this.score = 0L;
+        this.score = 0L ;
         this.creationDate = new Date();
     }
 
