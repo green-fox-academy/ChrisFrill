@@ -30,7 +30,8 @@ public class WebshopController {
     }
 
     @GetMapping("/webshop")
-    public String getShopItems(ModelMap modelMap) {
+    public String getShopItems(ModelMap modelMap, @RequestParam(value = "username", required = false) String username) {
+        modelMap.addAttribute("username", username);
         modelMap.addAttribute("shopItems", shopItems );
         return "webshop";
     }
@@ -79,5 +80,10 @@ public class WebshopController {
                 .filter(shopItem -> shopItem.getName().toLowerCase().contains(q.toLowerCase())
                         || shopItem.getDescription().toLowerCase().contains(q.toLowerCase())).collect(Collectors.toList()));
         return "webshop";
+    }
+
+    @PostMapping("/login")
+    public String postLogin(@RequestParam("username") String username) {
+        return "redirect:/webshop?username=" + username ;
     }
 }
