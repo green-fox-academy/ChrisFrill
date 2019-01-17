@@ -1,9 +1,10 @@
 package dominos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class Dominoes {
+public class Dominoes{
 
     public static void main(String[] args) {
         List<Domino> dominoes = initializeDominoes();
@@ -11,9 +12,11 @@ public class Dominoes {
         // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
         // eg: [2, 4], [4, 3], [3, 5] ...
 
+        Collections.sort(dominoes);
         System.out.println(dominoes);
         orderDominoes(dominoes);
         System.out.println(dominoes);
+
     }
 
     static List<Domino> initializeDominoes() {
