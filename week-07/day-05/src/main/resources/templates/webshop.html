@@ -3,17 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style2.css">
 </head>
 <body>
 <div>
     <div id="title">
-        <a href='/webshop'><span>Krisz Fearsome Unicorn Farm</span></a>
-        <div id="search">
+        <a href='/webshop'><span>Santa's Fearsome Unicorn Farm</span></a>
+        <div class="search">
             <form action="/search" method="POST">
                 <input type="search" name="q" aria-label="Search through site content">
                 <input type="submit" value="Search">
             </form>
+        </div>
+        <div class="login" th:if="${username != null}">
+            <span th:text="|Hi ${username} | + '!'"></span>
+        </div>
+        <div th:if="${username == null}" class="login">
+            <button class="collapsible">Login</button>
+            <div class="content">
+                <form th:action="@{/login}" th:method="post">
+                        <p  id="account_login">
+                            Account login
+                        </p>
+
+                        <label for="username">Username</label>
+                        <input type="text" id="username" th:name="username" autofocus required>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <img class="show_pass" src="../img/show_pass.png" onclick="myFunction()"></span>
+
+
+                        <input type="submit" value="Login">
+
+
+                </form>
+            </div>
         </div>
     </div>
 
@@ -49,7 +74,7 @@
             <div class="shop_item">
                 <div class="layer">
                     <div class="name">
-                     <p th:text="${item.getName()}">Text</p>
+                        <p th:text="${item.getName()}">Text</p>
                     </div>
                     <p th:text="${item.getDescription()}">Text</p>
                     <p class="shop_field">Price</p>
@@ -61,5 +86,35 @@
         </th:block>
     </div>
 </div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
+
+</script>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 </body>
 </html>
