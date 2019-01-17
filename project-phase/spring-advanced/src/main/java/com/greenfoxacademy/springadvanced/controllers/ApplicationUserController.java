@@ -3,6 +3,7 @@ package com.greenfoxacademy.springadvanced.controllers;
 import com.greenfoxacademy.springadvanced.models.ApplicationUser;
 import com.greenfoxacademy.springadvanced.models.ApplicationUserDTO;
 import com.greenfoxacademy.springadvanced.services.ApplicationUserService;
+import com.greenfoxacademy.springadvanced.util.DTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,12 +29,17 @@ public class ApplicationUserController {
 
     @PostMapping("/sign-up")
     public ResponseEntity register(@RequestBody ApplicationUserDTO applicationUserDTO) {
-
         ApplicationUser applicationUser = ApplicationUser
                 .builder()
                 .setSomeUsername(applicationUserDTO.getUsername())
                 .setSomePassword(bCryptPasswordEncoder.encode(applicationUserDTO.getPassword()))
                 .build();
+        applicationUserService.save(applicationUser);
+        return ResponseEntity.ok("User successfully registered");
+    }
+
+    @PostMapping("/sign-up-with-dto-interface")
+    public ResponseEntity registerWithDTOInterface(@DTO(ApplicationUserDTO.class) ApplicationUser applicationUser) {
         applicationUserService.save(applicationUser);
         return ResponseEntity.ok("User successfully registered");
     }
