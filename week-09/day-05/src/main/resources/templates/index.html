@@ -115,7 +115,7 @@
             <td class="col-lg-2" th:text="${#dates.format(post.creationDate, 'dd/MM/yyyy HH:mm:ss')}"></td>
             <td class="col-lg-2" th:text="${post.user.username}"></td>
             <td class="col-lg-2" >
-                <form th:if="${#authentication.name} == ${post.user.username}" th:method="POST" th:action="@{/delete}" th:object="${post}">
+                <form th:if="${#authentication} == ${post.user.username}" th:method="POST" th:action="@{/delete}" th:object="${post}">
                     <div class="form-group">
                         <input type="hidden" th:value="${post.id}" th:name="id">
                         <button class="btn btn-danger btn-sm glyphicon glyphicon-remove" type="submit"
@@ -154,12 +154,13 @@
                     </li>
                     <li th:class="${posts.isLast()}?'disabled':''">
                         <span th:if='${posts.isLast()}'>Last →</span>
-                        <a th:if='${not posts.isLast()}' th:href='@{/(page=${posts.totalPages-1})}'>Last →</a>
+                        <a th:if='${not posts.isLast()}' th:href='@{/(page=${posts.totalPages})}'>Last →</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </div>
+    <p th:text="${#authentication.principal}"></p>
 
 </div>
 
