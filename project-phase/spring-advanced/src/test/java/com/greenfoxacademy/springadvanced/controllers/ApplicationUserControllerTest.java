@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -17,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.persistence.EntityManager;
 import java.nio.charset.Charset;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -33,8 +35,8 @@ public class ApplicationUserControllerTest {
             MediaType.APPLICATION_JSON.getSubtype(),
             Charset.forName("utf8"));
 
-    @Autowired
-    private WebApplicationContext context;
+    /*@Autowired
+    private WebApplicationContext context;*/
 
     @Autowired
     private MockMvc mockMvc;
@@ -48,13 +50,19 @@ public class ApplicationUserControllerTest {
     @MockBean
     private UserDetailsServiceImpl userDetailsService;
 
-    @Before
+    @MockBean
+    private ApplicationContext applicationContext;
+
+    @MockBean
+    private EntityManager entityManager;
+
+    /*@Before
     public void setup() {
         mockMvc = MockMvcBuilders
                 .webAppContextSetup(context)
                 .apply(springSecurity())
                 .build();
-    }
+    }*/
 
     @Test
     public void showUser_401Error () throws Exception {
@@ -63,10 +71,31 @@ public class ApplicationUserControllerTest {
     }
 
     @Test
-    @WithMockUser()
-    public void showUser_successful () throws Exception {
+    public void register_successful () throws Exception {
+        mockMvc.perform(post("/users/sign-up")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content("{\n" +
+                        "    \"username\" : \"Krisz\",\n" +
+                        "    \"password\" : \"pass\"\n" +
+                        "}"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void login_401Status () throws Exception {
         mockMvc.perform(post("/login")
-                .with()
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content("{\n" +
+                        "    \"username\" : \"Krisz\",\n" +
+                        "    \"password\" : \"pass\"\n" +
+                        "}"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    public void login_200Status () throws Exception {
+        mockMvc.perform(post("/login")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content("{\n" +
                         "    \"username\" : \"Krisz\",\n" +
                         "    \"password\" : \"pass\"\n" +
